@@ -4,6 +4,7 @@ All rights reserved.
 SPDX-License-Identifier: BSD-3-Clause
 For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 """
+load("@py_deps//:requirements.bzl", "requirement")
 
 python_version = "PY3"
 
@@ -11,6 +12,7 @@ python_version = "PY3"
 py_binary(
     name = "pomgen",
     srcs = [":pomgen_files"],
+	deps = [requirement("lxml")],
     python_version = python_version,
 )
 
@@ -25,6 +27,7 @@ py_binary(
     name = "update",
     main = "update.py",
     srcs = [":pomgen_files"],
+	deps = [requirement("lxml")],
     python_version = python_version,
 )
 
